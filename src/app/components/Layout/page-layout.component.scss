@@ -1,0 +1,122 @@
+.pageLayout {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  transition: all 0.4s ease;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Light background color */
+  border-right: 1px solid #ddd; /* Border for separation */
+}
+
+.mainwrapper {
+  margin: 20px;
+  flex-grow: 1;
+}
+
+.logo-fixed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  border-bottom: 1px solid black;
+  height: 60px;
+  background-color: #fff; /* Background color for the logo area */
+}
+
+.right-section {
+  width: calc(100% - 200px);
+  background: #f7f9fb;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  min-height: 60px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #fff; /* Background color for the header */
+}
+
+.person-icon {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--theme-colors);
+  font-size: 28px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: var(--theme-colors);
+}
+
+/* Sidebar Styles */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+  padding: 10px;
+  color: green;
+  cursor: pointer;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--theme-colors);
+}
+
+.sidebar li.active {
+  font-weight: 700;
+  background-color: var(--primary-color);
+}
+
+.logo{
+  padding-top: 21px;
+  font-weight: 500;
+  color: var(--primary-color);
+}

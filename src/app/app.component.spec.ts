@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'mavarick_admin_assignment' title`, () => {
+  it(`should have the 'mavarick-tool' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('mavarick_admin_assignment');
+    expect(app.title).toEqual('mavarick-tool');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, mavarick_admin_assignment');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, mavarick-tool');
   });
 });

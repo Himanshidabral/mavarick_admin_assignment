@@ -1,0 +1,33 @@
+.menu-item {
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24.51px;
+  letter-spacing: -0.01em;
+  color: var(--theme-colors);
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+li {
+  margin: 10px 0px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.active {
+  font-weight: 700;
+  background-color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.mat-icon {
+  font-size: 24px;
+  margin-right: 8px;
+}

@@ -1,0 +1,72 @@
+
+.title-class {
+    color: var(--theme-colors);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    /* Fallback color */
+  }
+  
+  mat-card {
+    max-width: 100%;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: end;
+    margin-top: 16px;
+  }
+  
+  .addPool-input {
+    width: 100%;
+    z-index: 0;
+    height: 71px !important;
+  }
+  
+  .align-fields {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  
+  .border-pool {
+    border: 1px solid #000;
+    width: 402px;
+    min-height: 100px;
+    max-height: 200px;
+    overflow: auto;
+  }
+  ::ng-deep.mdc-list-item__primary-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .pool-features {
+    position: relative;
+  }
+  
+  .pool-features > label {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #fff;
+    padding: 2px 8px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21.79px;
+    text-align: left;
+  }
+  
+  .wrapper {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .color-add{
+    background-color: var(--theme-colors);
+
+  }

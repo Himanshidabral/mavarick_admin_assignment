@@ -1,0 +1,74 @@
+.mat-card {
+    margin: 16px;
+  }
+  
+  .mat-card-title {
+    color: #3f51b5;
+  }
+  
+  .search-add-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 13px;
+  }
+  
+  .search-field {
+    width: 300px;
+  }
+  
+  .table-container {
+    max-height: 400px;
+    overflow: auto;
+  }
+  
+  .mat-header-cell,
+  .mat-cell {
+    padding: 8px;
+  }
+  
+  ::ng-deep .mat-mdc-paginator-container {
+    justify-content: center !important;
+  }
+  
+  .no-data {
+    width: 100%;
+    height: 60px;
+    display: grid;
+    place-items: center;
+  }
+  
+  span {
+    font-size: 2rem;
+  }
+  
+  .mat-header-row {
+    background-color: var(--theme-colors);
+    color: white;
+  }
+  
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    width: 100%;
+    height: 45px !important;
+    z-index: 0;
+  }
+  
+  tr.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row {
+    background-color: var(--theme-colors);
+    color: white;
+  }
+  
+  .title-colors {
+    color: var(--theme-colors);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 10px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .color-add{
+    background-color: var(--theme-colors);
+
+  }
+  

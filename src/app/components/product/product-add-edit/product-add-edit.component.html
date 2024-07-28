@@ -1,0 +1,108 @@
+<section>
+    <mat-card>
+      <mat-card-title class="title-class"
+        >{{ typeDisplay }}  Product</mat-card-title
+      >
+      <mat-card-content>
+        <form [formGroup]="productForm">
+          <div class="wrapper">
+            <div class="align-fields">
+              <div>
+                <mat-form-field class="addPool-input" appearance="outline">
+                  <mat-label>Enter Product Name</mat-label>
+                  <input matInput formControlName="name" required />
+                  <mat-error *ngIf="productForm.controls['name'].hasError('required')">
+                    Product Name is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            
+              <div>
+                <mat-form-field class="addPool-input" appearance="outline">
+                  <mat-label>Enter Product Price</mat-label>
+                  <input matInput formControlName="price" required />
+                  <mat-error *ngIf="productForm.controls['price'].hasError('required')">
+                    Product Price is required
+                  </mat-error>
+                  <mat-error *ngIf="productForm.controls['price'].hasError('min')">
+                    Price cannot be negative
+                  </mat-error>
+                  <mat-error *ngIf="productForm.controls['price'].hasError('pattern')">
+                    Price must be a number
+                  </mat-error>
+      
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="addPool-input" appearance="outline">
+                  <mat-label>Choose Category</mat-label>
+                  <mat-select formControlName="categoryId" required>
+                    <mat-option *ngFor="let category of categoryData" [value]="category._id">
+                      {{category.name}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="productForm.controls['categoryId'].hasError('required')">
+                    Category is required
+                  </mat-error>
+      
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <div class="align-fields">
+              <mat-form-field class="addPool-input" appearance="outline">
+                <mat-label>Enter Product Size</mat-label>
+                <input matInput formControlName="size" required />
+                <mat-error *ngIf="productForm.controls['size'].hasError('required')">
+                    Product Size is required
+                  </mat-error>
+        
+              </mat-form-field>
+              <mat-form-field class="addPool-input" appearance="outline">
+                <mat-label>Enter Product Discount(%)</mat-label>
+                <input matInput formControlName="discount" required />
+                <mat-error *ngIf="productForm.controls['discount'].hasError('required')">
+                    Product Discount is required
+                  </mat-error>
+                  <mat-error *ngIf="productForm.controls['discount'].hasError('min')">
+                    Discount cannot be negative
+                  </mat-error>
+                  <mat-error *ngIf="productForm.controls['discount'].hasError('max')">
+                    Discount cannot exceed 100%
+                  </mat-error>
+                  <mat-error *ngIf="productForm.controls['discount'].hasError('pattern')">
+                    Discount must be a number
+                  </mat-error>
+
+        
+              </mat-form-field>
+              <div>
+                <mat-form-field class="addPool-input" appearance="outline">
+                  <mat-label>Choose Vendor</mat-label>
+                  <mat-select formControlName="vendorId" required>
+                    
+                    <mat-option *ngFor="let vendor of vendorData" [value]="vendor._id">
+                      {{vendor.name}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="productForm.controls['vendorId'].hasError('required')">
+                    Vendor is required
+                  </mat-error>
+      
+                </mat-form-field>
+              </div>
+
+            </div>
+          </div>
+  
+          <div class="actions">
+            <button mat-button type="button" (click)="onCancel()">Cancel</button>
+            <button *ngIf="typeDisplay!='View'" mat-raised-button class="color-add" type="submit" (click)="onSubmit()">
+              {{ typeDisplay == "Add" ? "Submit" : "Update" }}
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </section>
+  

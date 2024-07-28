@@ -1,0 +1,31 @@
+<main class="pageLayout">
+  <!-- sidebar -->
+  <aside class="sidebar">
+    <div class="logo-fixed">
+      <h5 class="logo-text logo"><i class="bi bi-graph-up-arrow"></i> Mavarick </h5>
+    </div>
+    <app-sidebar></app-sidebar>
+  </aside>
+
+  <!-- right-section -->
+  <div class="right-section">
+    <!-- header-section-start -->
+    <div class="header">
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button">
+          <i class="bi bi-person-fill"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </div>
+    <!-- header-section-close -->
+
+    <!-- innerWrapper -->
+    <div class="mainwrapper">
+      <router-outlet></router-outlet>
+    </div>
+    <!-- innerWrapper -->
+  </div>
+</main>
