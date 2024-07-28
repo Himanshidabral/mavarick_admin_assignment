@@ -14,9 +14,6 @@ export const routes: Routes = [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'product', component: ProductListComponent },
             { path: 'dashboard', component: DashboardChartComponent }
-
-
-
         ]
     }
 ];

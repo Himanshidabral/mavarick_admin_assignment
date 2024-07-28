@@ -1,9 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AlertService } from '../../Service/alert.service';
 import { CommonService } from '../../Service/common.service';
+
+function passwordValidator(control: FormControl) {
+  if (!control.value) {
+    return null; // return null if control is empty
+  }
+  const value = control.value;
+  const hasUpperCase = /[A-Z]/.test(value);
+  const hasLowerCase = /[a-z]/.test(value);
+  const hasNumeric = /\d/.test(value);
+  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+
+  const isValid =
+    hasUpperCase && hasLowerCase && hasNumeric && hasSpecialChar;
+
+  return isValid ? null : { passwordStrength: true };
+}
 
 @Component({
   selector: 'app-login',
@@ -25,6 +41,8 @@ export class LoginComponent {
   password: any;
   loginForm!: FormGroup;
   passwordVisible: boolean = false;
+  isSubmitting = false; // Flag to manage submission state
+
 
   constructor(
     private _route: Router,
@@ -47,7 +65,9 @@ export class LoginComponent {
   buildForm() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      password: ['', [
+        Validators.required,
+      ]],
     });
   }
 
@@ -56,12 +76,16 @@ export class LoginComponent {
     return this.loginForm.controls;
   }
 
+
+
   login() {
     this.submitted=true;
     if (this.loginForm.invalid) {
 
       return
     }
+    this.isSubmitting = true; // Set flag to true when submission starts
+
     const loginData = this.loginForm.value;
 
     this.commonService.login(loginData).subscribe((data: any) => {
@@ -74,6 +98,11 @@ export class LoginComponent {
     }, err => {
       console.log(err);
       this.alert.warning(err?.error?.data?.error?err?.error?.data?.error:err?.error?.message)
+      setTimeout(() => {
+        this.isSubmitting = false; // Reset flag after request completes        
+      }, 2000);
+
+
     });
     
 
