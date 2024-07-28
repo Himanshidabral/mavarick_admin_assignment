@@ -1,8 +1,6 @@
 import { Component, Inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
-import { MatTableDataSource } from '@angular/material/table';
-import { ReplaySubject, Subject, take, takeUntil } from 'rxjs';
 import { HttpsharedService } from '../../../Service/httpshared.service';
 import { CommonService } from '../../../Service/common.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -24,16 +22,7 @@ import { AlertService } from '../../../Service/alert.service';
 })
 export class ProductAddEditComponent {
   productForm!: FormGroup;
-  //filteredSecurities: any = [];
-  selectedSecurities: any = [];
-  allSecurities = [];
-  securityControl = new FormControl();
-  securityFilterControl = new FormControl();
-  private _onDestroy = new Subject<void>();
   typeDisplay: string = 'Add'
-  private isEditMode = false;
-  private searchSubject = new Subject<string>();
-  filteredSecurities: ReplaySubject<any[]> = new ReplaySubject<any[]>(1);
   categoryData:any=[];
   vendorData: any = []; // Initialize as an empty array
 
