@@ -5,21 +5,6 @@ import { Router, RouterModule } from '@angular/router';
 import { AlertService } from '../../Service/alert.service';
 import { CommonService } from '../../Service/common.service';
 
-function passwordValidator(control: FormControl) {
-  if (!control.value) {
-    return null; // return null if control is empty
-  }
-  const value = control.value;
-  const hasUpperCase = /[A-Z]/.test(value);
-  const hasLowerCase = /[a-z]/.test(value);
-  const hasNumeric = /\d/.test(value);
-  const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(value);
-
-  const isValid =
-    hasUpperCase && hasLowerCase && hasNumeric && hasSpecialChar;
-
-  return isValid ? null : { passwordStrength: true };
-}
 
 @Component({
   selector: 'app-login',
